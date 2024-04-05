@@ -13,6 +13,9 @@
 
 using namespace std;
 
+// Método para desplegar detalles de los asistentes
+// Muestra la Edad Promedio
+// Muestra la cantidad de asistentes por tipo de Asistente
 void desplegarDetallesAsistentes(vector<Asistente*>& vectorAsistentes) {
     int sumadorEdades = 0;
     int contadorEstudiantes = 0;
@@ -30,6 +33,9 @@ void desplegarDetallesAsistentes(vector<Asistente*>& vectorAsistentes) {
     cout<<"Cantidad de asistentes de Concierto: "<<contadorAsistenteConcierto<<endl;
 }
 
+// Método para desplegar estadísticas de asistencia
+// Muestra el número total de asistentes
+// Calcula y muestra la asistencia promedio por tipo de evento
 void desplegarEstadisticasAsistencia(vector<Evento*>& vectorEventos, vector<Asistente*>& vectorAsistentes) {
     cout<<"Número total de asistentes: "<<vectorAsistentes.size()<<endl;
     cout<<"Asistencia promedio por tipo de evento:\n"<<endl;
@@ -51,12 +57,19 @@ void desplegarEstadisticasAsistencia(vector<Evento*>& vectorEventos, vector<Asis
     cout<<"    Catedra: "<<sumadorAsistCatedra/contadorEventosCatedra<<endl;
 }
 
+// Método para desplegar la lista de asistentes por cada evento
+// Itera sobre cada evento en el vector de eventos
+// y despliega la lista de asistentes de cada evento
 void desplegarListaAsistentesPorEvento(vector<Evento*>& vectorEventos) {
     for (Evento* evento : vectorEventos) {
         evento->desplegarListaAsistentes();
     }
 }
 
+// Método para desplegar la lista general de eventos
+// Imprime un encabezado para la lista de eventos
+// Itera sobre cada evento en el vector de eventos
+// e imprime el tipo de cada evento
 void desplegarListaEventos(vector<Evento*>& vectorEventos) {
     cout<<"LISTA GENERAL DE EVENTOS:\n"<<endl;
     for (Evento* evento : vectorEventos) {
@@ -64,6 +77,8 @@ void desplegarListaEventos(vector<Evento*>& vectorEventos) {
     }
 }
 
+// Método para desplegar las opciones de informes y procesar la selección del usuario
+// Cada opción del switch llama a una función correspondiente para desplegar la información requerida
 void desplegarOpcionesInformes(vector<Evento*>& vectorEventos, vector<Asistente*>& vectorAsistentes) {
     int opcion = 0;
     do {
@@ -98,6 +113,8 @@ void desplegarOpcionesInformes(vector<Evento*>& vectorEventos, vector<Asistente*
     } while(opcion != 5);
 }
 
+// Método para liberar la memoria de los vectores de eventos y asistentes
+// Limpia el vector de eventos y de asistentes
 void liberarMemoria(vector<Evento*>& vectorEventos, vector<Asistente*>& vectorAsistentes) {
     for (Evento* evento : vectorEventos) {
         delete evento;
@@ -110,6 +127,7 @@ void liberarMemoria(vector<Evento*>& vectorEventos, vector<Asistente*>& vectorAs
     vectorAsistentes.clear();
 }
 
+// Función para dividir una cadena utilizando un delimitador especificado
 vector<string> split(const string& str, char delim) {
     vector<string> tokens;
     stringstream ss(str);
@@ -122,6 +140,8 @@ vector<string> split(const string& str, char delim) {
     return tokens;
 }
 
+// Función para verificar y eliminar eventos duplicados en el vector de eventos
+// Si se encuentra un evento duplicado, se elimina y se libera la memoria
 void verificarDatosUnicosRepetidos(vector<Evento*>& vectorEventos, vector<Asistente*>& vectorAsistentes) {
     // Eliminar eventos duplicados
     auto itEvento = vectorEventos.begin();
@@ -156,6 +176,7 @@ void verificarDatosUnicosRepetidos(vector<Evento*>& vectorEventos, vector<Asiste
     }
 }
 
+// Función para actualizar los datos de la sesión a un archivo de texto
 void actualizarDatosTxt(vector<Evento*>& vectorEventos, vector<Asistente*>& vectorAsistentes) {
     string linea;
     string texto;
@@ -175,6 +196,7 @@ void actualizarDatosTxt(vector<Evento*>& vectorEventos, vector<Asistente*>& vect
     }
 }
 
+// Función para leer datos desde un archivo de texto y cargarlos en los vectores de eventos y asistentes
 void leerDatosTxt(vector<Evento*>& vectorEventos, vector<Asistente*>& vectorAsistentes) {
     string linea;
     ifstream archivo("datos.txt");
@@ -222,6 +244,7 @@ void leerDatosTxt(vector<Evento*>& vectorEventos, vector<Asistente*>& vectorAsis
     archivo.close();
 }
 
+// Función para cargar eventos predefinidos en el vector de eventos
 void cargarEventos(vector<Evento*>& vectorEventos) {    
     vectorEventos.push_back(new Concierto("Concierto","Estadio Sanchez Rumuroso","Entretenimiento",90,3245,"Rock","Queen"));
     vectorEventos.push_back(new Concierto("Concierto","Teatro Caupolicán","Entretenimiento",90,3244,"Rock","Guns N' Roses"));
@@ -241,6 +264,7 @@ void cargarEventos(vector<Evento*>& vectorEventos) {
     vectorEventos.push_back(new Catedra("Cátedra","UCN G4-17","Educación",80,1113,"Gonzalo Pérez"));
 }
 
+// Función para cargar eventos predefinidos en el vector de asistentes
 void cargarAsistentes(vector<Asistente*>& vectorAsistentes) {
     vectorAsistentes.push_back(new Estudiante("estudiante","Pepe","21.333.434-3",20,"Estudiante",4,"ICCI"));
     vectorAsistentes.push_back(new Estudiante("estudiante","Sebastián","21.133.134-3",20,"Estudiante",4,"ICCI"));
@@ -257,6 +281,7 @@ void cargarAsistentes(vector<Asistente*>& vectorAsistentes) {
     vectorAsistentes.push_back(new AsistenteConcierto("asistente de concierto","Jer","21.878.293-1",21,"Panadero","Normal"));
 }
 
+// Función para buscar un evento por su código en el vector de eventos
 Evento* buscarEvento(int inputCodigoEvento, vector<Evento*>& vectorEventos) {
     for (Evento* e : vectorEventos){
         if(e->getCodigoEvento() == inputCodigoEvento) {
@@ -266,6 +291,8 @@ Evento* buscarEvento(int inputCodigoEvento, vector<Evento*>& vectorEventos) {
     return nullptr; 
 }
 
+// Permite registrar un nuevo asistente y asociarlo a un evento existente. El usuario proporciona la información del asistente
+// incluyendo el tipo y los detalles personales, así como el código del evento al que se asociará.
 void registrarAsistente(vector<Asistente*>& vectorAsistentes, vector<Evento*>& vectorEventos) {
      int inputTipo, inputEdad, inputCodigoEvento;
      string inputNombre, inputRut, inputOcupacion;
@@ -326,6 +353,7 @@ void registrarAsistente(vector<Asistente*>& vectorAsistentes, vector<Evento*>& v
      }
  }
 
+// Función para desplegar una lista de todos los asistentes registrados
 void desplegarListaAsistentes(vector<Asistente*>& vectorAsistentes) {
     cout<<"LISTA GENERAL DE ASISTENTES:\n"<<endl;
     for(Asistente* asistente : vectorAsistentes) {
@@ -333,12 +361,15 @@ void desplegarListaAsistentes(vector<Asistente*>& vectorAsistentes) {
     }
 }
 
+// Genera un código aleatorio para un evento
 int generarCodigoEventoAleatorio() {
     int valorRandom = 0;
     valorRandom = 1000 + rand() % 8999;
     return valorRandom;
 }
 
+// Permite al usuario agregar un nuevo evento al sistema, eligiendo entre dos tipos: Concierto o Cátedra. Para evitar duplicados
+// se genera un código de evento aleatorio único. Luego, se solicitan los detalles específicos del evento
 void tipoEvento(vector<Evento*>& vectorEventos, vector<int> codigosEventos) {
     int inputTipo;
     cout<<"\nIngrese tipo de evento: \n1) Concierto\n2) Cátedra\nSelecciona una opción:"<<endl;
@@ -403,6 +434,7 @@ void tipoEvento(vector<Evento*>& vectorEventos, vector<int> codigosEventos) {
     }
 }
 
+// Menú para que el usuario pueda interactuar con las opciones principales del programa
 void menu(vector<Evento*>& vectorEventos, vector<Asistente*>& vectorAsistentes, vector<int> codigosEventos) {      
     int opcion = 0;
     cout<<"--- Bienvenido/a al Menú ---"<<endl;
