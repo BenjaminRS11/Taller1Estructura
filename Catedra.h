@@ -12,4 +12,5 @@ class Catedra : public Evento {
         string getDocente();
         string devolverInfoEventoFormatoTxt();
         void imprimirTipo();
+        void desplegarListaAsistentes();
 };

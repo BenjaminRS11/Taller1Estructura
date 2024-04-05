@@ -1,0 +1,27 @@
+Concierto,Estadio Sanchez Rumuroso,Entretenimiento,90,3245,Rock,Queen
+Concierto,Teatro Caupolicán,Entretenimiento,90,3244,Rock,Guns N' Roses
+Concierto,Estadio Santa Laura,Entretenimiento,80,2145,Rock,Nirvana
+Concierto,Estadio Monumental,Entretenimiento,90,5335,Rock,Iron Maiden
+Concierto,Estadio San Carlos de Apoquindo,Entretenimiento,100,1145,Rock,Metallica
+Concierto,Estadio Bicentenario de la Florida,Entretenimiento,70,3111,Pop,Bruno Mars
+Concierto,Movistar Arena,Entretenimiento,60,7772,Urbano Latino,Arcángel
+Concierto,Estadio Ester Roa Rebolledo,Entretenimiento,60,4445,Urbano Latino,Ozuna
+Cátedra,UCN G6-54,Educación,80,1113,Jorge Soto
+Cátedra,UCN G6-47,Educación,80,1213,Pedro Fuentes
+Cátedra,UCN G1-06,Educación,80,1413,Sergio González
+Cátedra,UCN X1-030,Educación,80,5113,Juan Véliz
+Cátedra,UCN X1-029,Educación,80,1613,Vicente Sepúlveda
+Cátedra,UCN G4-21,Educación,80,1883,Benjamín Rojas
+Cátedra,UCN G4-23,Educación,80,1173,Sebastián Echeverría
+Cátedra,UCN G4-17,Educación,80,1693,Gonzalo Pérez
+estudiante,Pepe,21.333.434-3,20,Estudiante,4,ICCI
+estudiante,Sebastián,21.133.134-3,20,Estudiante,4,ICCI
+estudiante,Juan,21.323.232-2,19,Estudiante,4,ITI
+estudiante,Javier,21.366.634-9,20,Estudiante,4,ITI
+estudiante,Cristofer,21.776.779-0,19,Estudiante,4,ICI
+estudiante,Pablo,21.655.433-1,20,Estudiante,4,ICI
+asistente de concierto,Sergio,20.333.333-3,21,n/a,VIP
+asistente de concierto,Benjamín,21.233.222-3,21,Emprendedor,Normal
+asistente de concierto,Vicente,20.663.797-4,21,Emprendedor,Normal
+asistente de concierto,David,20.323.323-7,21,Jugador de Fútbol,VIP
+asistente de concierto,Jeremy,21.878.293-1,21,Emprendedor,VIP

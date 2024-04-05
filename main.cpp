@@ -37,8 +37,8 @@ void desplegarDetallesAsistentes(vector<Asistente*>& vectorAsistentes) {
 // Muestra el número total de asistentes
 // Calcula y muestra la asistencia promedio por tipo de evento
 void desplegarEstadisticasAsistencia(vector<Evento*>& vectorEventos, vector<Asistente*>& vectorAsistentes) {
-    cout<<"Número total de asistentes: "<<vectorAsistentes.size()<<endl;
-    cout<<"Asistencia promedio por tipo de evento:\n"<<endl;
+    cout<<"Número total de asistentes (en base de datos, con o sin asociar): "<<vectorAsistentes.size()<<endl;
+    cout<<"Asistencia promedio por tipo de evento:"<<endl;
 
     int sumadorAsistConcierto = 0;
     int sumadorAsistCatedra = 0;
@@ -46,15 +46,19 @@ void desplegarEstadisticasAsistencia(vector<Evento*>& vectorEventos, vector<Asis
     int contadorEventosCatedra = 0;
     for(Evento* evento: vectorEventos) {
         if(evento->getTipo() == "Concierto") {
-            sumadorAsistConcierto += evento->getAsistencia();
-            contadorEventosConcierto += 1;
+            int asistencia = evento->getAsistencia();
+            sumadorAsistConcierto += asistencia;
+            contadorEventosConcierto++;
         } else if(evento->getTipo() == "Cátedra") {
-            sumadorAsistCatedra += evento->getAsistencia();
-            contadorEventosCatedra += 1;
+            int asistencia = evento->getAsistencia();
+            sumadorAsistCatedra += asistencia;
+            contadorEventosCatedra++;
         }
     }
-    cout<<"    Concierto: "<<sumadorAsistConcierto/contadorEventosConcierto<<endl;
-    cout<<"    Catedra: "<<sumadorAsistCatedra/contadorEventosCatedra<<endl;
+    int AsistPromedioConcierto = sumadorAsistConcierto/contadorEventosConcierto;
+    int AsistPromedioCatedra = sumadorAsistCatedra/contadorEventosCatedra;
+    cout<<"Concierto: "<<AsistPromedioConcierto<<endl;
+    cout<<"Catedra: "<<AsistPromedioCatedra<<endl;
 }
 
 // Método para desplegar la lista de asistentes por cada evento
@@ -85,7 +89,7 @@ void desplegarOpcionesInformes(vector<Evento*>& vectorEventos, vector<Asistente*
         cout<<"    1. Lista de eventos programados\n"<<endl;
         cout<<"    2. Lista de asistentes registrados para cada evento\n"<<endl;
         cout<<"    3. Números sobre la asistencia a los eventos\n"<<endl;
-        cout<<"    4. Detalles sobre los asistentes (Edad promedio y Ocupaciones más comunes)\n"<<endl;
+        cout<<"    4. Detalles sobre los asistentes\n"<<endl;
         cout<<"    5. Volver atrás"<<endl;
         cout<<"Seleccione una opción: "<<endl;
         cin>>opcion;
@@ -255,13 +259,13 @@ void cargarEventos(vector<Evento*>& vectorEventos) {
     vectorEventos.push_back(new Concierto("Concierto","Movistar Arena","Entretenimiento",60,7772,"Urbano Latino","Arcángel"));
     vectorEventos.push_back(new Concierto("Concierto","Estadio Ester Roa Rebolledo","Entretenimiento",60,4445,"Urbano Latino","Ozuna"));
     vectorEventos.push_back(new Catedra("Cátedra","UCN G6-54","Educación",80,1113,"Jorge Soto"));
-    vectorEventos.push_back(new Catedra("Cátedra","UCN G6-47","Educación",80,1113,"Pedro Fuentes"));
-    vectorEventos.push_back(new Catedra("Cátedra","UCN G1-06","Educación",80,1113,"Sergio González"));
-    vectorEventos.push_back(new Catedra("Cátedra","UCN X1-030","Educación",80,1113,"Juan Véliz"));
-    vectorEventos.push_back(new Catedra("Cátedra","UCN X1-029","Educación",80,1113,"Vicente Sepúlveda"));
-    vectorEventos.push_back(new Catedra("Cátedra","UCN G4-21","Educación",80,1113,"Benjamín Rojas"));
-    vectorEventos.push_back(new Catedra("Cátedra","UCN G4-23","Educación",80,1113,"Sebastián Echeverría"));
-    vectorEventos.push_back(new Catedra("Cátedra","UCN G4-17","Educación",80,1113,"Gonzalo Pérez"));
+    vectorEventos.push_back(new Catedra("Cátedra","UCN G6-47","Educación",80,1213,"Pedro Fuentes"));
+    vectorEventos.push_back(new Catedra("Cátedra","UCN G1-06","Educación",80,1413,"Sergio González"));
+    vectorEventos.push_back(new Catedra("Cátedra","UCN X1-030","Educación",80,5113,"Juan Véliz"));
+    vectorEventos.push_back(new Catedra("Cátedra","UCN X1-029","Educación",80,1613,"Vicente Sepúlveda"));
+    vectorEventos.push_back(new Catedra("Cátedra","UCN G4-21","Educación",80,1883,"Benjamín Rojas"));
+    vectorEventos.push_back(new Catedra("Cátedra","UCN G4-23","Educación",80,1173,"Sebastián Echeverría"));
+    vectorEventos.push_back(new Catedra("Cátedra","UCN G4-17","Educación",80,1693,"Gonzalo Pérez"));
 }
 
 // Función para cargar eventos predefinidos en el vector de asistentes

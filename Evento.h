@@ -27,6 +27,6 @@ class Evento {
         void asociarAsistente(Asistente*);
         virtual string devolverInfoEventoFormatoTxt();
         virtual void imprimirTipo();
-        void desplegarListaAsistentes();
-        int getAsistencia();
+        virtual void desplegarListaAsistentes();
+        virtual int getAsistencia();
 };

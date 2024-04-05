@@ -14,4 +14,5 @@ class Concierto : public Evento {
         string getArtista();
         string devolverInfoEventoFormatoTxt();
         void imprimirTipo();
+        void desplegarListaAsistentes();
 };
